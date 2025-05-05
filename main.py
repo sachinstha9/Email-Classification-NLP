@@ -68,20 +68,6 @@ trainer = Trainer(model, args, train_dataset=train_dataset, eval_dataset=val_dat
 
 trainer.train()
 
-prediction = trainer.predict(test_dataset)
-
-predictions = np.argmax(prediction.predictions, axis=1)
-
-
-from sklearn.metrics import accuracy_score
-
-acc = accuracy_score(
-test_dataset['labels'], predictions)
-
-trainer.save_model("./model")
-
-tokz.save_pretrained("./model")
-
 
 
 
